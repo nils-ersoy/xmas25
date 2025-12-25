@@ -1,0 +1,140 @@
+/* Minimal festive styling */
+:root {
+  --bg: #0e1116;
+  --card: #151a22;
+  --text: #e9f1fb;
+  --muted: #a9b8cf;
+  --accent: #d33a2c; /* red */
+  --accent-2: #1f7a4c; /* green */
+  --ring: #ffd166; /* warm */
+}
+* { box-sizing: border-box; }
+html, body { height: 100%; }
+body {
+  margin: 0;
+  font-family: 'Nunito', system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+  background: radial-gradient(1200px 600px at 15% -10%, #18202a, transparent),
+              radial-gradient(900px 500px at 110% -20%, #18202a, transparent),
+              var(--bg);
+  color: var(--text);
+}
+
+.site-header {
+  text-align: center;
+  padding: 2.5rem 1rem 1.25rem;
+}
+.site-header h1 { margin: 0 0 .5rem; font-weight: 800; letter-spacing: 0.4px; }
+.tagline { margin: 0; color: var(--muted); }
+
+.container {
+  width: min(900px, 92%);
+  margin: 0 auto 3rem;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+}
+
+.card {
+  background: linear-gradient(180deg, #161c25, #121821);
+  border: 1px solid #202736;
+  border-radius: 14px;
+  padding: 1.25rem;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.25);
+}
+.card h2 { margin-top: 0; }
+
+.challenge-list { margin: .5rem 0 0 1.25rem; }
+.challenge-list li { margin: .5rem 0; }
+.hint, .tip { color: var(--muted); font-size: .92rem; }
+.hint-hidden, .tip-hidden { display: none; }
+.hint-toggle {
+  display: inline-block;
+  margin: .6rem 0;
+  padding: .5rem .8rem;
+  background: rgba(255,209,102,.1);
+  border: 1px solid var(--ring);
+  border-radius: 6px;
+  color: var(--ring);
+  font-size: .85rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all .2s ease;
+}
+.hint-toggle:hover { background: rgba(255,209,102,.2); }
+.hint-toggle:active { transform: scale(0.98); }
+.tip-toggle {
+  display: inline-block;
+  margin: .4rem 0 .2rem;
+  padding: .45rem .75rem;
+  background: rgba(31,122,76,.12);
+  border: 1px solid color-mix(in srgb, var(--accent-2), white 25%);
+  border-radius: 6px;
+  color: color-mix(in srgb, var(--accent-2), white 10%);
+  font-size: .85rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all .2s ease;
+}
+.tip-toggle:hover { background: rgba(31,122,76,.18); }
+.tip-toggle:active { transform: scale(0.98); }
+
+/* Clickable X in MaX (footer) — subtle, blends in */
+.map-x-text {
+  color: inherit;
+  cursor: pointer;
+  text-decoration: none;
+  font-weight: inherit;
+}
+.map-x-text:hover { filter: none; }
+.site-footer .map-reveal { margin-left: .5rem; }
+
+.note { color: var(--muted); margin-top: .75rem; }
+.mono { font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New', monospace; }
+
+#pwForm { display: grid; grid-template-columns: 1fr auto; gap: .6rem; align-items: end; }
+#pwForm label { grid-column: 1 / -1; color: var(--muted); }
+#pwForm input {
+  background: #0f141c;
+  color: var(--text);
+  border: 1px solid #252f3f;
+  border-radius: 10px;
+  padding: .8rem .9rem;
+  outline: none;
+}
+#pwForm input:focus { border-color: var(--ring); box-shadow: 0 0 0 3px color-mix(in srgb, var(--ring), transparent 75%); }
+
+.btn {
+  padding: .8rem 1rem;
+  border: 1px solid #2a3648;
+  border-radius: 10px;
+  background: linear-gradient(180deg, color-mix(in srgb, var(--accent), white 10%), var(--accent));
+  color: white;
+  font-weight: 700;
+  cursor: pointer;
+}
+.btn:hover { filter: brightness(1.05); }
+
+.status { min-height: 1.25rem; color: var(--muted); margin: .25rem 0 0; }
+.status.error { color: #ff9b9b; }
+.status.ok { color: #9cffb4; }
+
+.letter article { line-height: 1.65; }
+
+.site-footer { text-align: center; color: var(--muted); padding: 1.5rem 1rem 3rem; }
+
+/* Tiny falling sparkle (pure CSS) */
+body::before {
+  content: "";
+  position: fixed; inset: 0; pointer-events: none;
+  background-image: radial-gradient(2px 2px at 20% 10%, rgba(255,255,255,.35) 50%, transparent 51%),
+                    radial-gradient(2px 2px at 60% 20%, rgba(255,255,255,.35) 50%, transparent 51%),
+                    radial-gradient(2px 2px at 80% 5%, rgba(255,255,255,.35) 50%, transparent 51%),
+                    radial-gradient(2px 2px at 15% 40%, rgba(255,255,255,.35) 50%, transparent 51%),
+                    radial-gradient(2px 2px at 75% 45%, rgba(255,255,255,.35) 50%, transparent 51%);
+  background-repeat: repeat;
+  animation: drift 18s linear infinite;
+}
+@keyframes drift {
+  from { transform: translateY(-20px); opacity: .85; }
+  to   { transform: translateY(20px); opacity: .85; }
+}
