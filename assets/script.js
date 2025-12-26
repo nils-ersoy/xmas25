@@ -33,8 +33,8 @@
     });
   });
 
-  // Password check via SHA-256 hash (trimmed, lowercased input)
-  const EXPECTED_PASSWORD_HASH = 'f85451eb1d20adaf24cc6473814b679e4119230c95e6588083dae4c6b5e5ce7f';
+  // Password check via SHA-256 hash (trimmed input)
+  const EXPECTED_PASSWORD_HASH = 'b45f3d23d57befc5468ffb8c962f8d2d2e5e0211a5c71eeed56f6e4db74c5e9d';
   const STORAGE_KEY = 'xmas25-unlocked';
 
   const form = document.getElementById('pwForm');
@@ -43,7 +43,7 @@
   const letter = document.getElementById('letter');
 
   function normalizeForHash(s) {
-    return (s || '').trim().toLowerCase();
+    return (s || '').trim();
   }
 
   async function sha256Hex(str) {
