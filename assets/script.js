@@ -34,7 +34,7 @@
   });
 
   // Password check via SHA-256 hash (trimmed, lowercased input)
-  const EXPECTED_PASSWORD_HASH = 'd27556a1c62e3e2acd56f75c4a6c0edfe46acc06f89baf55b5cdf9fb9c97cc1c';
+  const EXPECTED_PASSWORD_HASH = 'a56b6ae70756da107f58769ce2679116a2373284e3f1db288f795f24046720c8';
   const STORAGE_KEY = 'xmas25-unlocked';
 
   const form = document.getElementById('pwForm');
